@@ -1,10 +1,14 @@
 
+import Header from './components/Header';
+import Contact from './components/Contact';
 import './styles/App.scss';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>hello App</h1>
+      <Header />
+      <Contact />
     </div>
   );
 }
