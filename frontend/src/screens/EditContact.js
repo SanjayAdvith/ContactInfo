@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { addContact } from '../actions/contactsAction'
 import shortid from 'shortid'
-const AddContact = () => {
+const EditContact = () => {
 
     const dispatch = useDispatch()
     const history = useHistory();
@@ -64,4 +64,4 @@ const AddContact = () => {
     )
 }
 
-export default AddContact
+export default EditContact

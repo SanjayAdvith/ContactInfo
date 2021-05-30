@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Avatar from 'react-avatar'
 const ContactList = ({ data }) => {
-    const { name, phone, email } = data; //destructuring of data
+    const { id, name, phone, email } = data; //destructuring of data
     //console.log(props)
     return (
 
@@ -17,8 +18,12 @@ const ContactList = ({ data }) => {
             <td>{phone}</td>
             <td>{email}</td>
             <td>
-                <span className="btn">edit</span>
-                <span className="btn">del</span>
+                <Link to={`/edit/${id}`}>
+                    <span className="btn">edit</span>
+                </Link>
+                <Link to={`/delete/${id}`}>
+                    <span className="btn">del</span>
+                </Link>
             </td>
         </tr>
 

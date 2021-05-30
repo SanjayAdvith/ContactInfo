@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import ContactList from './ContactList'
 
 const Contact = () => {
-    const contt = useSelector((state) => state.contacts)
+    const contt = useSelector((state) => state.contactReduser.contacts)
     console.log(contt)
 
     //const contacts = [1, 2, 3, 4, 5]
@@ -17,7 +17,6 @@ const Contact = () => {
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" />
                                 <label className="custom-control-label"></label>
-
                             </div>
                         </th>
                         <th scope="col">Name</th>
@@ -28,7 +27,7 @@ const Contact = () => {
                 </thead>
                 <tbody>
                     {contt.map((c) =>
-                        <ContactList data={c} />
+                        <ContactList data={c} key={c.id} />
                     )}
                 </tbody>
             </table>
