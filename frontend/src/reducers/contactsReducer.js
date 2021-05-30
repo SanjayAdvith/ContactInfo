@@ -1,4 +1,8 @@
-import { CREATE_CONTACT } from '../constants/contactsConstant'
+import {
+    CREATE_CONTACT,
+    GET_CONTACT,
+    UPDATE_CONTACT
+} from '../constants/contactsConstant'
 
 
 const initialState =
@@ -186,8 +190,7 @@ const initialState =
             "phone": "+1 (885) 461-3054"
         }
     ],
-    counter: 0,
-    address: "lko"
+    contact: null,
 
 }
 
@@ -197,7 +200,24 @@ export const contactsCreateReducer = (state = initialState, action) => {
             return {
                 ...state,
                 contacts: [action.payload, ...state.contacts]
+            };
+        case GET_CONTACT:
+            // eslint-disable-next-line eqeqeq
+            let arr = state.contacts.filter((contact) => contact.id == action.payload);
+            arr = arr.values();
+            for (let val of arr) {
+                arr = val;
             }
+            return {
+                ...state,
+                contact: arr,
+            };
+        case UPDATE_CONTACT:
+            return {
+                ...state,
+                // eslint-disable-next-line eqeqeq
+                contacts: state.contacts.map((e) => e.id == action.payload.id ? action.payload : e)
+            };
         default:
             return state
     }

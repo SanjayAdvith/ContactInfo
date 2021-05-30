@@ -4,7 +4,7 @@ import ContactList from './ContactList'
 
 const Contact = () => {
     const contt = useSelector((state) => state.contactReduser.contacts)
-    console.log(contt)
+    console.log('conatact sanjay ' + contt)
 
     //const contacts = [1, 2, 3, 4, 5]
 
