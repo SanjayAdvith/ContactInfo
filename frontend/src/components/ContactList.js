@@ -1,9 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Avatar from 'react-avatar'
+import { deleteContact } from '../actions/contactsAction'
 const ContactList = ({ data }) => {
     const { id, name, phone, email } = data; //destructuring of data
-    //console.log(props)
+    //console.log(props)  
+    const dispatch = useDispatch()
+
+    const deleteHandler = () => {
+        dispatch(deleteContact(id))
+        //alert('Deleted')
+        window.confirm('Are you sure')
+    }
+
     return (
 
         <tr>
@@ -21,9 +31,9 @@ const ContactList = ({ data }) => {
                 <Link to={`/edit/${id}`}>
                     <span className="btn">edit</span>
                 </Link>
-                <Link to={`/delete/${id}`}>
-                    <span className="btn">del</span>
-                </Link>
+
+                <span className="btn" onClick={deleteHandler}>del</span>
+
             </td>
         </tr>
 

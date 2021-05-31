@@ -1,5 +1,6 @@
 import {
     CREATE_CONTACT,
+    DELETE_CONTACT,
     GET_CONTACT,
     UPDATE_CONTACT
 } from '../constants/contactsConstant'
@@ -217,6 +218,13 @@ export const contactsCreateReducer = (state = initialState, action) => {
                 ...state,
                 // eslint-disable-next-line eqeqeq
                 contacts: state.contacts.map((e) => e.id == action.payload.id ? action.payload : e)
+            };
+        // eslint-disable-next-line no-duplicate-case
+        case DELETE_CONTACT:
+            return {
+                ...state,
+                // eslint-disable-next-line eqeqeq
+                contacts: state.contacts.filter((e) => e.id != action.payload),
             };
         default:
             return state
