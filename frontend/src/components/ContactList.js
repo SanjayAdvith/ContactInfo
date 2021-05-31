@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Avatar from 'react-avatar'
 import { deleteContact } from '../actions/contactsAction'
+import { Delete, Edit } from '@material-ui/icons';
 const ContactList = ({ data }) => {
     const { id, name, phone, email } = data; //destructuring of data
     //console.log(props)  
@@ -15,13 +16,11 @@ const ContactList = ({ data }) => {
     }
 
     return (
-
         <tr>
             <th>
                 <div className="custom-control custom-checkbox">
                     <input type="checkbox" className="custom-control-input" />
                     <label className="custom-control-label"></label>
-
                 </div>
             </th>
             <td><Avatar name={name} size="40" round={true} />{name}</td>
@@ -29,14 +28,12 @@ const ContactList = ({ data }) => {
             <td>{email}</td>
             <td>
                 <Link to={`/edit/${id}`}>
-                    <span className="btn">edit</span>
+                    <Edit />
                 </Link>
 
-                <span className="btn" onClick={deleteHandler}>del</span>
-
+                <Delete onClick={deleteHandler} color="secondary" />
             </td>
         </tr>
-
     )
 }
 
